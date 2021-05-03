@@ -1,0 +1,67 @@
+.createpage__main {
+   
+}
+
+.createpage__title {
+    font-family: Montserrat,sans-serif;
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.createpage__subTitle {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 7px;
+}
+
+.createpage__list {
+    list-style: none;
+    width: 100%;
+}
+
+.createpage__element {
+    height: 80px;
+    background-color: #e0e0e0;
+    color: #999;
+    border: 2px solid white;
+    text-align: center;
+    top: 50%;
+    margin: auto;
+}
+
+.createpage__element-active {
+    background-color: #434f61;
+    color: white;
+}
+
+.createpage__elementTitle {
+    position: relative;
+    font-size: 20px !important;
+    top: 33%;
+}
+
+.createpage__mainShow {
+    height: 500px;
+    margin: 2px;
+    background-color: white;
+}
+
+.createpage__input {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50px;
+}
+
+.createpage__buttonNext {
+    height: 60px;
+    width: 30%;
+    margin-left: 35%;
+    margin-top: 60px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(20, 155, 20);
+}
+

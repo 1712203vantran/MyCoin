@@ -1,0 +1,17 @@
+.optionLanguage-caret {
+    transition: all 150ms ease-in;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border-top: 8px solid;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    color: #05c0a5;
+  }
+
+  .optionLanguage-dropdown {
+      width: 170px;
+      border: #05c0a5 2px solid;
+  }
