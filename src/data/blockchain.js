@@ -109,10 +109,10 @@ class Blockchain
         let block = new Block(Date.now(), this.pendingTransactions, this.getLatestBlock().hash);
         block.mineBlock(this.difficulty);
 
-        console.log('Block successfully mined!');
         this.chain.push(block);
-
         this.pendingTransactions = [];
+
+        return block;
     }
 
     addTransaction(transaction)
@@ -150,7 +150,78 @@ class Blockchain
             }
         }
 
+        for (const trans of this.pendingTransactions)
+        {
+            if (trans.fromAddress === address)
+            {
+                balance -= trans.amount;
+            }
+
+            if (trans.toAddress === address)
+            {
+                balance += trans.amount;
+            }
+        }
+
         return balance;
+    }
+
+    getTransactionsOfWallet(walletAddress)
+    {
+        let transactions = [];
+
+        for (const block of this.chain)
+        {
+            for (const trans of block.transactions)
+            {
+                if (trans.fromAddress === walletAddress)
+                {
+                    transactions.push(trans);
+                }
+
+                if (trans.toAddress === walletAddress)
+                {
+                    transactions.push(trans);
+                }
+            }
+        }
+
+        for (const trans of this.pendingTransactions)
+        {
+            if (trans.fromAddress === walletAddress)
+            {
+                transactions.push(trans);
+            }
+
+            if (trans.toAddress === walletAddress)
+            {
+                    transactions.push(trans);
+            }
+        }
+
+        return transactions;
+    }
+
+    getAllTransaction()
+    {
+        let transactions = [];
+
+        for (const block of this.chain)
+        {
+            for (const trans of block.transactions)
+            {
+                if (trans !== undefined && trans.fromAddress !== undefined && trans.toAddress !== undefined)
+                    transactions.push(trans);
+            }
+        }
+
+        for (const trans of this.pendingTransactions)
+            {
+                if (trans !== undefined && trans.fromAddress !== undefined && trans.toAddress !== undefined)
+                    transactions.push(trans);
+            }
+
+        return transactions;
     }
 
     isChainValid()

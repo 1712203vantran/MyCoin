@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 import action from "../../storage/action";
+import service from "./service";
 import "./styles.css";
 
 const CreatePage = () => {
@@ -38,6 +39,25 @@ const CreatePage = () => {
   const handleClickShowPassword = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  // handle create wallet
+  const handleCreateWallet = () => {
+    (async () => {
+      try {
+        // request to server
+        const { errorCode, data } = await service.createWallet(password);
+       
+        if (errorCode === true) {
+          // redux
+          dispatch(action.walletAction.create(data.wallet.key, data.wallet.block));
+          // history
+          history.push("/wallet");
+        }     
+      } catch (e) {
+    
+      }
+    })();
+  }
 
   let show = null;
   switch (index) {
@@ -82,7 +102,7 @@ const CreatePage = () => {
             }
           />
             
-          <button className="createpage__buttonNext">NEXT</button>
+          <button className="createpage__buttonNext" onClick={handleCreateWallet}>NEXT</button>
         </>
       );
       break;

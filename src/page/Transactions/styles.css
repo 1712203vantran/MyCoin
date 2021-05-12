@@ -1,0 +1,26 @@
+.trans__container {
+    margin-top: 50px;
+}
+
+.trans__table {
+    width: 96% !important;
+    margin: 10px 2%;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.trans__table > tr > th {
+    color: red;
+    font-weight: bold;
+    height: 3rem;
+    border: 1px solid black;
+}
+
+.trans__table > tr > td {
+    height: 2.5rem;
+    margin: auto 100px !important;
+    width: 50px !important;
+    word-wrap: break-word;
+    border: 1px solid black;
+}

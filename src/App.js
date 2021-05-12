@@ -5,6 +5,9 @@ import store from "./storage";
 import Header from "../src/component/header";
 
 import CreatePage from "./page/CreatePage";
+import WalletPage from "./page/WalletPage";
+import TransPage from "./page/Transactions";
+import CreateTransPage from "./page/Trans";
 
 function App() {
   return (
@@ -12,9 +15,24 @@ function App() {
       <Router>
         <Header />
 
-        <Route path={"/"}>
-          <CreatePage />
-        </Route>
+        <Switch>
+          <Route exact path={"/"}>
+            <CreatePage />
+          </Route>
+
+          <Route exact path={"/wallet"}>
+            <WalletPage />
+          </Route>
+
+          <Route exact path={"/transactions"}>
+            <TransPage />
+          </Route>
+
+          <Route exact path={"/create-trans"}>
+            <CreateTransPage />
+          </Route>
+
+        </Switch>
       </Router>
     </Provider>
   );
